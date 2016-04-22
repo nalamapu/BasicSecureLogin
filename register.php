@@ -115,12 +115,14 @@
         // protect against SQL injection attacks. 
         $query = " 
             INSERT INTO users ( 
-                username, 
+                username,
+                realname,
                 password, 
                 salt, 
                 email 
             ) VALUES ( 
-                :username, 
+                :username,
+                :realname,
                 :password, 
                 :salt, 
                 :email 
@@ -159,6 +161,7 @@
         // the salt (in its plaintext form; this is not a security risk). 
         $query_params = array( 
             ':username' => $_POST['username'], 
+            ':realname' => $_POST['realname'], 
             ':password' => $password, 
             ':salt' => $salt, 
             ':email' => $_POST['email'] 
@@ -191,7 +194,10 @@
 <form action="register.php" method="post"> 
     Username:<br /> 
     <input type="text" name="username" value="" /> 
-    <br /><br /> 
+    <br /><br />
+    Full name:<br /> 
+    <input type="text" name="realname" value="" /> 
+    <br /><br />
     E-Mail:<br /> 
     <input type="text" name="email" value="" /> 
     <br /><br /> 
