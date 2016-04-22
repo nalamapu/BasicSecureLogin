@@ -17,7 +17,8 @@
         $query = " 
             SELECT 
                 id, 
-                username, 
+                username,
+                realname,
                 password, 
                 salt, 
                 email 
